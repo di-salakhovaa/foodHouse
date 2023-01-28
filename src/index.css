@@ -151,8 +151,9 @@ li {
 /* menu */
 .menu-catalog {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
+  flex-wrap: wrap;
   gap: 20px;
 
   margin-top: 60px;
@@ -175,14 +176,19 @@ li {
   cursor: pointer;
 
   transition: all 0.8s ease;
+
+  border: none;
+  outline: none;
 }
 
-.menu__filtration:hover {
+.menu__filtration:hover,
+.menu__filtration.active {
   background-color: #FE8C01;
   color: #E9F8FB;
 }
 
-.menu__filtration:hover path {
+.menu__filtration:hover path,
+.menu__filtration.active path {
   fill: #E9F8FB;
 }
 
@@ -193,8 +199,9 @@ li {
 }
 
 .products__list {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
   gap: 60px 30px;
 
   margin-top: 90px;

@@ -14,6 +14,10 @@ const Menu = () => {
         setItems(filterSalad(productsItem, id));
     };
 
+    const onCLickAllFilter = () => {
+        setItems(productsItem);
+    }
+
     return (
         <section>
             <div className="container">
@@ -22,11 +26,14 @@ const Menu = () => {
                     <div className="line"></div>
 
                     <div className="menu-catalog">
+                        <button onClick={onCLickAllFilter} className="menu__filtration active">
+                            <p>Все</p>
+                        </button>
                         {
                             categories.map((category) => {
                                 return (
                                     <button onClick={() => onCLickFilter(category.id)} className="menu__filtration">
-                                        <img src={category.url} alt={category.text} />
+                                        {category.url}
                                         <p>{category.text}</p>
                                     </button>
                                 );
@@ -35,7 +42,7 @@ const Menu = () => {
                     </div>
 
                     <div keys={items} className="products__list">
-                        {items.map((item) => <Product img={item.image} name={item.name} portion={item.portion} calories={item.calories}/>)}
+                        {items.map((item) => <Product img={item.image} name={item.name} portion={item.portion} calories={item.calories} />)}
                     </div>
 
                     <button className="show_more">Показать ещё</button>
